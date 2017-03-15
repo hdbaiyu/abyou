@@ -1,0 +1,54 @@
+html{font-size: 14px;}
+body {
+  background: #EBEBEB;
+}
+.text-center {text-align: center;}
+@activeColor: #F4645F;
+header {
+  height: 50px;
+  line-height: 50px;
+  background: #F4645F;
+  color: white;
+  .navs{
+    display: inline-block;
+    padding:0 10px;
+  }
+}
+#main {
+  padding:20px 0;
+  margin-bottom: 20px;
+  border:1px solid transparent;
+  .card-aside{
+    .title {
+      border-bottom: 1px solid#ccc;line-height: 40px;
+      .inner-title {
+        display: inline-block;
+        border-bottom: 2px solid @activeColor;
+        position: relative;top:1px;padding:0 10px;
+      }
+    }
+  }
+  .card {
+    padding: 0 2em;
+    background: white;
+    border-radius: 5px;
+    padding-bottom: 15px;
+    
+    .card-content {
+      padding-top: 10px;
+    }
+  }
+  .card-main {
+    padding: 30px;
+    .post-title {
+      font-size: 1.5rem;
+      line-height: 50px;
+    }
+    .text-content {
+      padding: 2rem 0;
+      .post-text{font-size: 1.2rem;line-height: 30px;padding-top: 1.5rem;}
+      img {width: 100%;}
+    }
+    
+  }
+}

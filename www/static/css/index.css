@@ -1,0 +1,62 @@
+html {
+  font-size: 14px;
+}
+body {
+  background: #EBEBEB;
+}
+.text-center {
+  text-align: center;
+}
+header {
+  height: 50px;
+  line-height: 50px;
+  background: #F4645F;
+  color: white;
+}
+header .navs {
+  display: inline-block;
+  padding: 0 10px;
+}
+#main {
+  padding: 20px 0;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
+#main .card-aside .title {
+  border-bottom: 1px solid#ccc;
+  line-height: 40px;
+}
+#main .card-aside .title .inner-title {
+  display: inline-block;
+  border-bottom: 2px solid #F4645F;
+  position: relative;
+  top: 1px;
+  padding: 0 10px;
+}
+#main .card {
+  padding: 0 2em;
+  background: white;
+  border-radius: 5px;
+  padding-bottom: 15px;
+}
+#main .card .card-content {
+  padding-top: 10px;
+}
+#main .card-main {
+  padding: 30px;
+}
+#main .card-main .post-title {
+  font-size: 1.5rem;
+  line-height: 50px;
+}
+#main .card-main .text-content {
+  padding: 2rem 0;
+}
+#main .card-main .text-content .post-text {
+  font-size: 1.2rem;
+  line-height: 30px;
+  padding-top: 1.5rem;
+}
+#main .card-main .text-content img {
+  width: 100%;
+}
