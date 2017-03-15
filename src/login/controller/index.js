@@ -27,22 +27,19 @@ export default class extends Base {
       this.status(400)
       return this.fail(400,'data is empty');
     }
-    console.log('post data is: ',data)
     //用户名去匹配数据库中对应的条目
-    let promise = this.model('user').where({username: data.username,password:data.password}).select();
-    const _this = this
-    promise.then(function(result) {
+    let promise = await this.model('user').where({username: data.username,password:data.password}).select();
+  
+    if (promise.length >0 ) {
     //获取到用户信息后，将用户信息写入session
-      _this.session('userInfo',result[0].username);
-      _this.status(200)
-      return _this.redirect('/admin')
-     // success
-    }, function(value) {
-      console.log('post result is fail: ',value)
-      _this.status(400)
-      return _this.fail(400,'password error or username error');
-    // failure
-    });
+      this.session('userInfo',promise[0].username);
+      this.status(200)
+      return this.redirect('/admin')
+
+    }
+    console.log('post result is fail: ',promise)
+    this.status(400)
+    return this.fail(400,'password error or username error');
 
   }
 
