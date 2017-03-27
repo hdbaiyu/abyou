@@ -1,70 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <title>DaeWoo</title>
-  <link href="https://cdn.bootcss.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/static/css/index.css">
+  <meta charset="utf-8">
+  <title>白雨的个人网站</title>
+  <!--<link rel="stylesheet" href="/static/lib//ddfullscreenslider.css">-->
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="shortcut icon" href="/static/img/favicon.icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/static/lib//jquery-1.11.3.min.js"></script>
+  <script src="/static/lib//jquery.mousewheel.min.js"></script>
+  <script src="/static/lib/ddfullscreenslider.js"></script>
 </head>
+
 <body>
-  <header>
-    <div class="container">
-      <span class="navs">前端</span>
-      <span class="navs">后端</span>
-      <span class="navs">工具</span>
-      <span class="navs">document</span>
+  <section id="home" class="fullscreenslider">
+    <div class="slidewrapper">
+      <article class="slide first-screen">
+        <div class="showTime animated">
+          <div class="name">白雨的个人网站</div>
+          <div class="en">Website BaiYu</div>
+        </div>
+      </article>
+
+      <article class="slide code-screen">
+      </article>
+
+      <article class="slide connect-screen">
+        <p style="position: relative; top: 35%; font: 700 60px 'Microsoft Yahei'; text-align: center;"></p>
+      </article>
 
     </div>
-  </header>
-  <selection class="content-wrap"  id="main">
-    <div class="container">
-      <main class="col-md-8">
-     
-        <% result.forEach(function(list){ %>
-          <div class="card card-main">
-            <div class="text-center">
-              <div class="post-title"><%= list.title %></div>
-              <div class="post-meta">
-                <span class="author">作者：<%= list.author%></span>
-                <time datetime=""><%= list.postTime %></time>
-              </div>
-            </div>
-            <div class="text-content">
-              <a href="">
-                <img src="/static/upload/<%= list.url %>" alt="">
-              </a>
-              <div class="post-text">
-                <%= list.content %>
-              </div>
-            </div>
-            <div class="text-bottom">
-              <button class="btn btn-success">阅读全文</button>
-            </div>
+  </section>
 
-          </div>
+  <script>
+    $(function () {
+      var fss = new screenSlider({
+        sliderid: 'home',
+        addHash: false,
+        transitionDuration:'0.6s',
+        onslide:function(page, index) {
+          console.log(index)
+          if (index ==0) {
+            $('.showTime').addClass('bounce')
+          }
+         if (index ==1) {
+           $('.showTime').removeClass('bounce')
+          }
+        }
+      });
+    });
 
-        <% }); %>
-      </main>
-      <aside class="col-md-4">
-        <div class="card card-aside">
-          <div class="title"><span class="inner-title">交流</span></div>
-          <div class="card-content">
-            Email: 302965941@qq.com
-          </div>
-        </div>
-        <div class="card card-aside">
-          <div class="title"><span class="inner-title">标签</span></div>
-          <div class="card-content">
-            <span class="btn btn-default btn-sm">PHP</span>
-            <span class="btn btn-default btn-sm">Node.js</span>
-            <span class="btn btn-default btn-sm">React.js</span>
-            <span class="btn btn-default btn-sm">Angularge</span>
-          </div>
-        </div>
-      </aside>
+  </script>
 
-    </div>
-  </selection>
-  
 </body>
+
 </html>
