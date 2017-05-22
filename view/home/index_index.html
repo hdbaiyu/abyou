@@ -1,56 +1,114 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
-  <meta charset="utf-8">
-  <title>白雨的个人网站</title>
-  <!--<link rel="stylesheet" href="/static/lib//ddfullscreenslider.css">-->
-  <link rel="stylesheet" href="/static/css/main.css">
-  <link rel="shortcut icon" href="/static/img/favicon.icon">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="/static/lib//jquery-1.11.3.min.js"></script>
-  <script src="/static/lib//jquery.mousewheel.min.js"></script>
-  <script src="/static/lib/ddfullscreenslider.js"></script>
+    <meta charset="utf-8">
+    <title>白雨的个人网站</title>
+    <!--<link rel="stylesheet" href="/static/lib//ddfullscreenslider.css">-->
+    <link rel="stylesheet" href="/static/lib/fullPage.css?s=1">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 <body>
-  <section id="home" class="fullscreenslider">
-    <div class="slidewrapper">
-      <article class="slide first-screen">
-        <div class="showTime animated">
-          <div class="name">白雨的个人网站</div>
-          <div class="en">Website BaiYu</div>
+    <section id="home" class="fullscreenslider">
+        <div class="slidewrapper">
+            <article class="slide section first-screen">
+                <div class="showTime bounce animated">
+                    <div class="name">白雨的个人网站</div>
+                    <div class="en">Website BaiYu</div>
+                </div>
+            </article>
+
+            <article class="slide section code-screen">
+                <div class="wrap">
+                    <div class="table-row ">
+                        <div class="block animated blog">
+                            博客
+                            <div>Blog</div>
+                        </div>
+                        <div class="block animated code">
+                            代码
+                            <div>Code</div>
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+
+            <article class="slide section connect-screen">
+                <div class="content animated">
+                    <p class="forme">联系我</p>
+                    <div class="box">
+                        <div class="about">
+                            <div class="icon email"></div>
+                            <div class="text-center">邮箱</div>
+                            <div class="value">baiyu22008@qq.com</div>
+                        </div>
+
+                    </div>
+                    <div class="box">
+                        <div class="about">
+                            <div class="icon flag"></div>
+                            <div class="text-center">Github</div>
+                            <div class="value"><a href="https://github.com/hdbaiyu">个人主页</a></div>
+                        </div>
+
+                    </div>
+                    <div class="box">
+                        <div class="about">
+                            <div class="icon flag"></div>
+                            <div class="text-center">合作</div>
+                            <div class="value">前端社区</div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </article>
+
         </div>
-      </article>
-
-      <article class="slide code-screen">
-      </article>
-
-      <article class="slide connect-screen">
-        <p style="position: relative; top: 35%; font: 700 60px 'Microsoft Yahei'; text-align: center;"></p>
-      </article>
-
-    </div>
-  </section>
-
-  <script>
-    $(function () {
-      var fss = new screenSlider({
-        sliderid: 'home',
-        addHash: false,
-        transitionDuration:'0.6s',
-        onslide:function(page, index) {
-          console.log(index)
-          if (index ==0) {
-            $('.showTime').addClass('bounce')
-          }
-         if (index ==1) {
-           $('.showTime').removeClass('bounce')
-          }
-        }
-      });
-    });
-
-  </script>
+    </section>
+    <script src="/static/lib//jquery-1.11.3.min.js"></script>
+    <script src="/static/lib/jquery-fullPage.js"></script>
+    <script>
+        $(function() {
+            $('#home').fullpage({
+                verticalCentered: !1,
+                navigation: !0,
+                scrollingSpeed: 1000,
+                onLeave: function(index, nextIndex, direction) {
+                    if (nextIndex == 1) {
+                        setTimeout(() => {
+                            $('.showTime').addClass('bounce')
+                        }, 200)
+                        $('.table-row .blog').removeClass('bounceInLeft')
+                        $('.table-row .code').removeClass('bounceInRight')
+                        $('.content').removeClass('flipInY')
+                    }
+                    if (nextIndex == 2) {
+                        setTimeout(() => {
+                            $('.table-row .blog').addClass('bounceInLeft')
+                            $('.table-row .code').addClass('bounceInRight')
+                        }, 200)
+                        $('.showTime').removeClass('bounce')
+                        $('.content').removeClass('flipInY')
+                    }
+                    if (nextIndex == 3) {
+                        setTimeout(() => {
+                            $('.content').addClass('flipInY')
+                        }, 200)
+                        $('.showTime').removeClass('bounce')
+                        $('.table-row .blog').removeClass('bounceInLeft')
+                        $('.table-row .code').removeClass('bounceInRight')
+                    }
+                }
+            });
+        });
+    </script>
 
 </body>
 

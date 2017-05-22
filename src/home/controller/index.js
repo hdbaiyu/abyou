@@ -9,10 +9,10 @@ export default class extends Base {
    */
   async indexAction(){
     //auto render template file index_index.html
-    const result = await this.model('article').select()
+    // const result = await this.model('article').select()
     // console.log('arrtf',Article)
     // let result = 'test'
-    this.assign({title:'wello come', result})
+    // this.assign({title:'wello come', result})
     return this.display();
   }
   async addAction() {
