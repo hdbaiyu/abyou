@@ -1,8 +1,8 @@
 {
   "apps": [{
-    "name": "D:demoD:demodemo",
+    "name": "abyou",
     "script": "www/production.js",
-    "cwd": "D:\demo\demo",
+    "cwd": "113.209.20.23",
     "exec_mode": "cluster",
     "instances": 0,
     "max_memory_restart": "1G",
@@ -10,7 +10,7 @@
     "node_args": [],
     "args": [],
     "env": {
-      
+
     }
   }]
 }
